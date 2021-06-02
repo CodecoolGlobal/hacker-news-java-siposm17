@@ -36,7 +36,7 @@ As his birthday is around the corner, you take the opportunity of surprising him
     - There is a footer with your name and email address
 
 2. Show top news from `Hacker News` site as cards next to each other
-    - There is an api endpoint `/api/top?page=1` implemented by a servlet which provides top news data in json format as follows: ```json [
+    - There is an com.codecool.hackernews.api endpoint `/com.codecool.hackernews.api/top?page=1` implemented by a servlet which provides top news data in json format as follows: ```json [
   {
   "title": "Show HN: I'm starting a Svelte JavaScript newsletter",
   "timeAgo": "a few seconds ago",
@@ -44,8 +44,8 @@ As his birthday is around the corner, you take the opportunity of surprising him
   "url": "https://svelte.substack.com/"
   },
   ...
-] ... ``` - if the page parameter is not defined then the first 30 elements are received - in case the page parameter is set, then the proper page of data is received (`GET /api/top?page=5` returns with the news from the 5th page)
-    - This endpoint uses the data from Hacker News API (api.hnpwa.com), which is retrieved on the backend-side. (See General requirements)
+] ... ``` - if the page parameter is not defined then the first 30 elements are received - in case the page parameter is set, then the proper page of data is received (`GET /com.codecool.hackernews.api/top?page=5` returns with the news from the 5th page)
+    - This endpoint uses the data from Hacker News API (com.codecool.hackernews.api.hnpwa.com), which is retrieved on the backend-side. (See General requirements)
     - The opening page of the website (`/`) loads first 30 top news from hacker news
     - The page has an HTML `div` element containing the data in cards
     - Every card shows the following information of a piece of news:
@@ -57,7 +57,7 @@ As his birthday is around the corner, you take the opportunity of surprising him
     - There's a previous button above the cards, clicking that shows the previous 30 items of news, if any
 
 3. When I select `Newest` from the menu, the page content changes to newest news.
-    - There is an api endpoint `/api/newest?page=1` which provides newest news data in json format as follows: 1        ```json [
+    - There is an com.codecool.hackernews.api endpoint `/com.codecool.hackernews.api/newest?page=1` which provides newest news data in json format as follows: 1        ```json [
   {
   "title": "Show HN: I'm starting a Svelte JavaScript newsletter",
   "timeAgo": "a few seconds ago",
@@ -65,7 +65,7 @@ As his birthday is around the corner, you take the opportunity of surprising him
   "url": "https://svelte.substack.com/"
   },
   ...
-] ``` - if the page parameter is not defined, then the first 30 elements are received - in case the page parameter is set, then the proper page of data is received (`GET /api/newest?page=5` returns with the news from the 5th page)
+] ``` - if the page parameter is not defined, then the first 30 elements are received - in case the page parameter is set, then the proper page of data is received (`GET /com.codecool.hackernews.api/newest?page=5` returns with the news from the 5th page)
     - When I click on the `Newest` button in the menu the page refreshes the cards' content with the first 30 items of newest news
     - The page has an HTML `div` element containing the data in cards
     - Every card shows the following information of a piece of news:
@@ -76,7 +76,7 @@ As his birthday is around the corner, you take the opportunity of surprising him
     - There's a previous button above the cards, clicking that shows the previous 30 news, if any
 
 4. When I select `Jobs` from the menu the page content changes to jobs related news.
-    - There is an api endpoint `/api/jobs?page=1`, which provides job news data in json format as follows: ```json [
+    - There is an com.codecool.hackernews.api endpoint `/com.codecool.hackernews.api/jobs?page=1`, which provides job news data in json format as follows: ```json [
   {
       "title": "Flexport is hiring engineers in Amsterdam",
       "timeAgo": "a day ago",
@@ -84,7 +84,7 @@ As his birthday is around the corner, you take the opportunity of surprising him
       "url": "https://Flexport.com"
   },
   ...
-] ``` - if the page parameter is not defined, then the first 30 elements are received - in case the page parameter is set, then the proper page of data is received (`GET /api/jobs?page=5` returns with the news from the 5th page)
+] ``` - if the page parameter is not defined, then the first 30 elements are received - in case the page parameter is set, then the proper page of data is received (`GET /com.codecool.hackernews.api/jobs?page=5` returns with the news from the 5th page)
     - The page has an HTML `div` element containing the data in cards
     - Every card shows the following information of a piece of job news:
 - `Title` as link to the original article
