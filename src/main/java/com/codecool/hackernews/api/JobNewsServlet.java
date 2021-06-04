@@ -8,4 +8,5 @@ public class JobNewsServlet extends NewsServlet{
     public JobNewsServlet() {
         this.setHackerURL("jobs");
     }
+
 }

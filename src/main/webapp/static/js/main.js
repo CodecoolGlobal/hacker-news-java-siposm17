@@ -1,5 +1,5 @@
 let page = 1;
-let numberOfPages;
+let numberOfPages = 1000;
 
 function mainLogic() {
     // Puts the default data on cards
@@ -18,7 +18,7 @@ function mainLogic() {
 
 function addEventListenerToNext(element, url){
     element.addEventListener("click", () => {
-        if(numberOfPages !== 0)page++;
+        if(numberOfPages > page)page++;
         urlToFetch = url + "?page=" + page;
         fetchThenPutOnCards(urlToFetch);
     })
@@ -36,7 +36,11 @@ function fetchThenPutOnCards(url){
     fetch(url)
         .then(r => r.json())
         .then(d => {
-            if(d !== [])putDataOnCards(d);
+            if(Object.keys(d).length !== 0) {
+                putDataOnCards(d)
+            } else {
+                numberOfPages = page;
+            }
         })
 }
 
@@ -79,15 +83,14 @@ function addNextAndPrevious(url){
     buttons.append(prevButton);
 }
 
-
 function putDataOnCards(data){
 
-    numberOfPages = Object.keys(data).length;
+
     let content = document.getElementById("inner_content");
     content.innerHTML = "";
 
 
-    for (let i = 0; i < numberOfPages; i++) {
+    for (let i = 0; i < Object.keys(data).length; i++) {
         // Creating new div element
         let newDiv = document.createElement("div");
         // Appending the new div to the inner content section
